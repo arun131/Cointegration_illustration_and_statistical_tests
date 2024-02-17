@@ -76,7 +76,7 @@ def perform_cointegration_tests(A, B):
     return eg_result, johansen_result, po_result, adf_gls_result
 
 
-def determine_cointegrated(A, B, if_plot=False):
+def determine_cointegration(A, B, if_plot=False):
     """
     Determine if two time series are cointegrated using multiple tests.
 
