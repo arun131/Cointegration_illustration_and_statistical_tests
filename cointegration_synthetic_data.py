@@ -59,7 +59,7 @@ def not_cointegrated(plot = False):
   stand_dev_1 = 2
 
   start_value_2 = 250
-  stand_dev_2 = 2
+  stand_dev_2 = 5
 
   # generate stock prices
   # assuming geometric brownian motion  
