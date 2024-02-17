@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from helper import plot_pair
 
 def simple_method(plot = False):
   # Method 1: simple method to create a cointegrated pair
@@ -19,8 +20,7 @@ def simple_method(plot = False):
 
   if plot:
       # plot the prices
-      plt.plot(stock_1)
-      plt.plot(stock_2)
+      plot_pair(pair_a_prices = stock_1, pair_b_prices = stock_2)
 
   return stock_1, stock_2
 
@@ -45,9 +45,8 @@ def adapted_method(plot = False):
   stock_1, stock_2 = make_cointegrated_pair(num_samples=2000, start_values= [100, 100], sigma = [0.01, 0.01], coint_factor=[0.1, 0.1])
   
   if plot:
-    # plot the prices
-    plt.plot(stock_1)
-    plt.plot(stock_2)
+      # plot the prices
+      plot_pair(pair_a_prices = stock_1, pair_b_prices = stock_2)
 
   return stock_1, stock_2
 
@@ -68,6 +67,10 @@ def not_cointegrated(plot = False):
 
   price_changes_2 = stand_dev_2 * np.random.randn(n)
   stock_2 = start_value_2 + np.cumsum(price_changes_2)
+
+  if plot:
+      # plot the prices
+      plot_pair(pair_a_prices = stock_1, pair_b_prices = stock_2)
 
   return stock_1, stock_2
 
