@@ -22,12 +22,12 @@ def plot_pair(pair_a_prices, pair_b_prices, pair_a_name = "Asset_A", pair_b_name
     fig, ax1 = plt.subplots()
     ax1.set_xlabel('Date')
     ax1.set_ylabel(pair_a_name)
-    ax1.plot(pair_a_prices.index, pair_a_prices.values, color = 'k')
+    ax1.plot(index_a, pair_a_prices.values, color = 'k')
 
 
     ax2 = ax1.twinx()  
     ax2.set_ylabel(pair_b_name)  
-    ax2.plot(pair_b_prices.index, pair_b_prices.values, color = 'r')
+    ax2.plot(index_b, pair_b_prices.values, color = 'r')
 
     fig.tight_layout()  
     plt.show()
