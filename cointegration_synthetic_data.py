@@ -15,8 +15,8 @@ def simple_method(plot = False):
   stock_1 = start_value + np.cumsum(price_changes_1)
 
   # simple cointegrated 
-  price_changes_2 = 2 * stand_dev * np.random.randn(n)
-  stock_2 =  stock_1 * 2 + price_changes_2 
+  price_changes_2 = stand_dev * np.random.randn(n)
+  stock_2 =  stock_1 ** 2 + price_changes_2 
 
   if plot:
       # plot the prices
