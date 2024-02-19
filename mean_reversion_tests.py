@@ -4,6 +4,13 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.stattools import kpss
 import statsmodels.api as sm
 
+def mean_reversion_test(spread):
+  exponent = hurst_exponent_test(spread)
+  eg_res = engle_granger_test(spread)
+
+  return exponent < 0.5 and eg_res
+
+
 def hurst_exponent_test(data):
     """
     Compute the Hurst exponent to assess mean reversion.
@@ -84,7 +91,7 @@ def mean_reverting_half_life(spread):
     >>> half_life = mean_reverting_half_life(spread)
     >>> print(half_life)
     """
-    
+
     lag_spread = np.roll(spread, 1)
     returns = spread - lag_spread
     const = sm.add_constant(lag_spread)
